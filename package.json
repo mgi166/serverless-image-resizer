@@ -3,14 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "scripts": {
+    "deploy:service": "serverless deploy"
+  },
   "dependencies": {
     "serverless": "^1.1.0"
   },
   "devDependencies": {
     "serverless": "^1.1.0"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
