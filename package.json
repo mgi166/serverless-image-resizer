@@ -8,7 +8,7 @@
     "deploy:service": "serverless deploy",
     "invoke": "serverless invoke -f imageResizer",
     "logs": "serverless logs -f imageResizer -t",
-    "webpack:bundle": "serverless webpack --out .webpack",
+    "webpack:build": "serverless webpack --out .webpack",
     "webpack:invoke": "serverless webpack invoke -f imageResizer"
   },
   "dependencies": {
