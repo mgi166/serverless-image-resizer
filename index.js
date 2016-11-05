@@ -1,5 +1,6 @@
 'use strict';
 
+import 'babel-polyfill';
 import gm from 'gm';
 
 module.exports.handle = (event, context, callback) => {

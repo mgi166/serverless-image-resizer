@@ -1,7 +1,10 @@
 const nodeExternals = require('webpack-node-externals');
 
 module.exports = {
-  entry: './index.js',
+  entry: [
+    'babel-polyfill',
+    './index.js',
+  ],
   target: 'node',
   output: {
     libraryTarget: 'commonjs',
