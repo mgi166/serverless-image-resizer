@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "deploy:service": "serverless deploy",
     "deploy": "serverless deploy function -f imageResizer",
+    "deploy:service": "serverless deploy",
     "webpack": "serverless webpack --out .webpack"
   },
   "dependencies": {
