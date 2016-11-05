@@ -22,6 +22,12 @@ provider:
   runtime: nodejs4.3
   region: ${env:AWS_REGION}
 
+plugins:
+  - serverless-webpack
+
+custom:
+  webpack: webpack.config.js
+
 # you can overwrite defaults here
 #  stage: dev
 #  region: us-east-1
