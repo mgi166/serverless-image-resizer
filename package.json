@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "deploy:service": "serverless deploy"
+    "deploy:service": "serverless deploy",
+    "deploy": "serverless deploy function -f imageResizer"
   },
   "dependencies": {
     "gm": "^1.23.0",
