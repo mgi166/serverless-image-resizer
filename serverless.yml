@@ -54,7 +54,7 @@ custom:
 #  artifact: my-service-code.zip
 
 functions:
-  iamgeResizer:
+  imageResizer:
     handler: index.handle
     events:
       - s3:
