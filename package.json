@@ -11,7 +11,8 @@
     "serverless": "^1.1.0"
   },
   "devDependencies": {
-    "serverless": "^1.1.0"
+    "serverless": "^1.1.0",
+    "yarn": "^0.16.1"
   },
   "keywords": [],
   "author": "",
