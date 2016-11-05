@@ -27,6 +27,7 @@ plugins:
 
 custom:
   webpack: webpack.config.js
+  webpackIncludeModules: true
 
 # you can overwrite defaults here
 #  stage: dev
