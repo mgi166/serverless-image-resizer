@@ -10,6 +10,7 @@
     "webpack": "serverless webpack --out .webpack"
   },
   "dependencies": {
+    "babel-polyfill": "^6.16.0",
     "gm": "^1.23.0",
     "serverless": "^1.1.0"
   },
