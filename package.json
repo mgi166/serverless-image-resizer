@@ -12,6 +12,7 @@
   },
   "devDependencies": {
     "serverless": "^1.1.0",
+    "serverless-webpack": "^1.0.0-rc.2",
     "yarn": "^0.16.1"
   },
   "keywords": [],
