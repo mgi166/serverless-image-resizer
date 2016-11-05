@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "deploy:service": "serverless deploy",
-    "deploy": "serverless deploy function -f imageResizer"
+    "deploy": "serverless deploy function -f imageResizer",
+    "webpack": "serverless webpack --out .webpack"
   },
   "dependencies": {
     "gm": "^1.23.0",
