@@ -7,6 +7,7 @@
     "deploy:service": "serverless deploy"
   },
   "dependencies": {
+    "gm": "^1.23.0",
     "serverless": "^1.1.0"
   },
   "devDependencies": {
