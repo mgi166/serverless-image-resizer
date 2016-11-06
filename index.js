@@ -57,7 +57,7 @@ const uploadImage = (buffer, info) => {
   });
 };
 
-export const handle = (event, context, callback) => {
+export const handle = async (event, context, callback) => {
   console.log('eventObject: %s', JSON.stringify(event, null, 2));
 
   const s3Event = event.Records[0].s3;
@@ -66,9 +66,9 @@ export const handle = (event, context, callback) => {
     Key: s3Event.object.key,
   };
 
-  Promise.resolve()
-    .then(() => downloadImage(params))
-    .catch((err) => console.log(err));
-
-  callback(null, event);
+  const imagePath = await downloadImage(params);
+  const info = await imageInfo(imagePath);
+  const imageBuffer = await resizeImage(imagePath);
+  const result = await uploadImage(imageBuffer, info);
+  callback(null, result);
 };
