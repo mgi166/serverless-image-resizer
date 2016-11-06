@@ -20,6 +20,18 @@ const downloadImage = (params) => {
     });
 };
 
+const resizeImage = (imagePath) => {
+  return new Promise((resolve, reject) => {
+    const resizeOpts = /^(\d+)x(\d+)([%@!<>])?$/g.exec(process.env.RESIZE_OPTION);
+
+    gm(imagePath)
+      .resize(resizeOpts[1], resizeOpts[2], resizeOpts[3])
+      .toBuffer('png', (err, buffer) => {
+        return err ? reject(err) : resolve(buffer);
+      });
+  });
+};
+
 export const handle = (event, context, callback) => {
   console.log('eventObject: %s', JSON.stringify(event, null, 2));
 
