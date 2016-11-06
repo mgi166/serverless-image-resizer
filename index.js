@@ -20,6 +20,15 @@ const downloadImage = (params) => {
     });
 };
 
+const imageInfo = (imagePath) => {
+  return new Promise((resolve, reject) => {
+    gm(imagePath)
+      .identify((err, info) => {
+        return err ? reject(err) : resolve(info);
+      });
+  });
+};
+
 const resizeImage = (imagePath) => {
   return new Promise((resolve, reject) => {
     const resizeOpts = /^(\d+)x(\d+)([%@!<>])?$/g.exec(process.env.RESIZE_OPTION);
