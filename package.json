@@ -16,7 +16,8 @@
     "aws-sdk": "^2.6.15",
     "babel-polyfill": "^6.16.0",
     "gm": "^1.23.0",
-    "serverless": "^1.1.0"
+    "serverless": "^1.1.0",
+    "ulid": "^0.1.0"
   },
   "devDependencies": {
     "babel-core": "^6.18.2",
