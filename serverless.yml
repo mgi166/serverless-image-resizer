@@ -29,8 +29,7 @@ plugins:
 custom:
   webpack: webpack.config.js
   webpackIncludeModules: true
-  writeEnvVars:
-    RESIZE_OPTION: ${env:RESIZE_OPTION}
+  writeEnvVars: ${file(env.yml)}
 
 # you can overwrite defaults here
 #  stage: dev
