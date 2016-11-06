@@ -1,5 +1,38 @@
 {
-  "key3": "value3",
-  "key2": "value2",
-  "key1": "value1"
+  "Records": [
+    {
+      "eventVersion": "2.0",
+      "eventSource": "aws:s3",
+      "awsRegion": "ap-northeast-1",
+      "eventTime": "2016-11-06T06:08:44.848Z",
+      "eventName": "ObjectCreated:Put",
+      "userIdentity": {
+        "principalId": "AWS:xxxxx"
+      },
+      "requestParameters": {
+        "sourceIPAddress": "x.x.x.x"
+      },
+      "responseElements": {
+        "x-amz-request-id": "xxxxx",
+        "x-amz-id-2": "yyyyy"
+      },
+      "s3": {
+        "s3SchemaVersion": "1.0",
+        "configurationId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "bucket": {
+          "name": "skskoari-image-bucket",
+          "ownerIdentity": {
+            "principalId": "xxxxx"
+          },
+          "arn": "arn:aws:s3:::skskoari-image-bucket"
+        },
+        "object": {
+          "key": "upload/pastel_400x400.jpg",
+          "size": 27851,
+          "eTag": "xxxxx",
+          "sequencer": "xxxxx"
+        }
+      }
+    }
+  ]
 }
