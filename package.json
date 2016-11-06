@@ -6,10 +6,10 @@
   "scripts": {
     "deploy": "serverless deploy",
     "deploy:function": "serverless deploy function -f imageResizer",
-    "invoke": "serverless invoke -f imageResizer",
+    "invoke": "serverless invoke -f imageResizer --path data/event.json",
     "logs": "serverless logs -f imageResizer -t",
     "webpack:build": "serverless webpack --out .webpack",
-    "webpack:invoke": "serverless webpack invoke -f imageResizer"
+    "webpack:invoke": "serverless webpack invoke -f imageResizer --path data/event.json"
   },
   "dependencies": {
     "babel-polyfill": "^6.16.0",
