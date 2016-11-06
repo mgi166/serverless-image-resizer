@@ -1,11 +1,11 @@
 'use strict';
 
 import 'babel-polyfill';
-import gm from 'gm';
 import Aws from 'aws-sdk';
 import path from 'path';
 import fs from 'fs';
 
+const gm = require('gm').subClass({ imageMagick: true });
 const s3 = new Aws.S3();
 
 const downloadImage = (params) => {
