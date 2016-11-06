@@ -23,11 +23,14 @@ provider:
   region: ${env:AWS_REGION}
 
 plugins:
+  - serverless-plugin-write-env-vars
   - serverless-webpack
 
 custom:
   webpack: webpack.config.js
   webpackIncludeModules: true
+  writeEnvVars:
+    RESIZE_OPTION: ${env:RESIZE_OPTION}
 
 # you can overwrite defaults here
 #  stage: dev
