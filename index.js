@@ -10,8 +10,7 @@ const s3 = new Aws.S3();
 
 const downloadImage = (params) => {
   return new Promise((resolve, reject) => {
-    // const destPath = path.join('/tmp', (new Date()).getTime().toString());
-    const destPath = "/test";
+    const destPath = path.join('/tmp', (new Date()).getTime().toString());
     s3.getObject(params).promise()
       .then(data => {
         fs.writeFileSync(destPath, data.Body);
