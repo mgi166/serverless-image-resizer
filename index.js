@@ -21,7 +21,7 @@ const downloadImage = (params) => {
     });
 };
 
-module.exports.handle = (event, context, callback) => {
+export const handle = (event, context, callback) => {
   console.log('eventObject: %s', JSON.stringify(event, null, 2));
 
   const s3Event = event.Records[0].s3;
