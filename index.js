@@ -30,13 +30,13 @@ const imageInfo = (imagePath) => {
   });
 };
 
-const resizeImage = (imagePath) => {
+const resizeImage = (imagePath, info) => {
   return new Promise((resolve, reject) => {
     const resizeOpts = /^(\d+)x(\d+)([%@!<>])?$/g.exec(process.env.RESIZE_OPTION);
 
     gm(imagePath)
       .resize(resizeOpts[1], resizeOpts[2], resizeOpts[3])
-      .toBuffer('png', (err, buffer) => {
+      .toBuffer(info.format, (err, buffer) => {
         return err ? reject(err) : resolve(buffer);
       });
   });
@@ -68,7 +68,7 @@ export const handle = async (event, context, callback) => {
 
   const imagePath = await downloadImage(params);
   const info = await imageInfo(imagePath);
-  const imageBuffer = await resizeImage(imagePath);
+  const imageBuffer = await resizeImage(imagePath, info);
   const result = await uploadImage(imageBuffer, info);
   callback(null, result);
 };
