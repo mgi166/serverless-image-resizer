@@ -4,6 +4,7 @@ import 'babel-polyfill';
 import Aws from 'aws-sdk';
 import path from 'path';
 import fs from 'fs';
+import ulid from 'ulid';
 
 const gm = require('gm').subClass({ imageMagick: true });
 const s3 = new Aws.S3();
@@ -38,6 +39,21 @@ const resizeImage = (imagePath) => {
       .toBuffer('png', (err, buffer) => {
         return err ? reject(err) : resolve(buffer);
       });
+  });
+};
+
+const uploadImage = (buffer, info) => {
+  return new Promise((resolve, reject) => {
+    const params = {
+      Bucket: process.env.DEST_S3_BUCKET_NAME,
+      Key: `${process.env.DEST_S3_PREFIX}/${ulid()}.${info.format}`,
+      Body: buffer,
+      ContentType: info['Mime type'],
+    };
+
+    s3.putObject(params, (err, data) => {
+      return err ? reject(err) : resolve(data);
+    });
   });
 };
 
