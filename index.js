@@ -1,6 +1,5 @@
 'use strict';
 
-import 'babel-polyfill';
 import imageResizer from './lib/imageResizer';
 
 export const handle = (event, context, callback) => {
