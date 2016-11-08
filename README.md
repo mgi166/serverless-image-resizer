@@ -1,15 +1,21 @@
 # serverless-image-resizer
-Resize image on S3 by AWS Lambda
+Resize image by AWS Lambda
 
 ## Features
 
 * Use [Serverless Framework](https://github.com/serverless/serverless#features)
 * The image conversion procedure is as follows.
-  * You upload an image file to s3 bucket.
+  * You upload an image file to `s3://${SOURCE_S3_BUCKET_NAME}/${SOURCE_S3_PREFIX}/xxxx.png`.
   * S3 create object-created event. and invoke AWS Lambda function.
-  * Downloads raw image file from `s3://${SOURCE_S3_BUCKET_NAME}/${SOURCE_S3_PREFIX}/*`
+  * Downloads raw image file from s3 in AWS Lambda.
   * Resize the image with ImageMagick(using [gm](https://github.com/aheckmann/gm))
-  * Uploads the resized image file to `s3://${DEST_S3_BUCKET_NAME}/${DEST_S3_PREFIX}/{26 random chars}.{png|jpg|gif|...}`
+  * Uploads the resized image file to `s3://${DEST_S3_BUCKET_NAME}/${DEST_S3_PREFIX}/{26 random chars}.{png|jpg|gif|...}` in AWS Lambda.
+
+## Required
+
+* [nodejs/node](https://github.com/nodejs/node)
+  * `> v6.0.0`
+* [yarn](https://github.com/yarnpkg/yarn)
 
 ## Getting started
 
@@ -55,6 +61,8 @@ yarn execute
 ```
 
 ## Environment variables
+
+All environment variables is required.
 
 * `AWS_REGION`
 * `AWS_ACCESS_KEY_ID`
