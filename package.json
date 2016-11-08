@@ -8,6 +8,10 @@
     "deploy": "serverless deploy",
     "deploy:function": "serverless deploy function -f imageResizer",
     "invoke": "serverless invoke -f imageResizer --path data/event.json",
+    "lint": "yarn lint:table",
+    "lint:table": "eslint . --format table",
+    "lint:codeframe": "eslint . --format codeframe",
+    "lint:fix": "eslint . --fix",
     "logs": "serverless logs -f imageResizer -t",
     "setup": "cp env.yml{.template,}",
     "webpack:build": "serverless webpack --out .webpack",
@@ -17,17 +21,20 @@
     "aws-sdk": "^2.6.15",
     "babel-polyfill": "^6.16.0",
     "gm": "^1.23.0",
-    "ulid": "^0.1.0"
+    "ulid": "^0.1.0",
+    "webpack-node-externals": "^1.5.4"
   },
   "devDependencies": {
     "babel-core": "^6.18.2",
     "babel-loader": "^6.2.7",
     "babel-preset-es2015": "^6.18.0",
     "babel-preset-stage-3": "^6.17.0",
+    "eslint": "^3.9.1",
+    "eslint-config-airbnb-base": "^10.0.1",
+    "eslint-plugin-import": "^2.2.0",
     "serverless": "^1.1.0",
     "serverless-plugin-write-env-vars": "^1.0.1",
     "serverless-webpack": "^1.0.0-rc.2",
-    "webpack-node-externals": "^1.5.4",
     "yarn": "^0.16.1"
   },
   "keywords": [],

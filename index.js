@@ -1,5 +1,3 @@
-'use strict';
-
 import imageResizer from './src/imageResizer';
 
 export const handle = (event, context, callback) => {
