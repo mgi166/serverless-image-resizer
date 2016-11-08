@@ -8,6 +8,7 @@
     "deploy": "serverless deploy",
     "deploy:function": "serverless deploy function -f imageResizer",
     "invoke": "serverless invoke -f imageResizer --path data/event.json",
+    "lint": "yarn lint:table",
     "lint:table": "eslint . --format table",
     "lint:codeframe": "eslint . --format codeframe",
     "lint:fix": "eslint . --fix",
