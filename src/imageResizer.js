@@ -57,9 +57,9 @@ const uploadImage = (buffer, info) =>
        ContentType: info['Mime type'],
      };
 
-     s3.upload(params, (err, data) =>
-       err ? reject(err) : resolve(data),
-    );
+     s3.upload(params, (err, data) => (
+       err ? reject(err) : resolve(data)
+     ));
    })
 ;
 
