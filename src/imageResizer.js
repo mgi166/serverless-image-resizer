@@ -7,6 +7,7 @@ import fs from 'fs';
 import ulid from 'ulid';
 
 const gm = require('gm').subClass({ imageMagick: true });
+
 const s3 = new Aws.S3();
 
 const downloadImage = params =>
