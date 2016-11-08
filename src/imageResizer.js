@@ -1,5 +1,3 @@
-
-
 import 'babel-polyfill';
 import Aws from 'aws-sdk';
 import path from 'path';
