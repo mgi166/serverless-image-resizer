@@ -1,6 +1,6 @@
 'use strict';
 
-import imageResizer from './lib/imageResizer';
+import imageResizer from './src/imageResizer';
 
 export const handle = (event, context, callback) => {
   console.log('eventObject: %s', JSON.stringify(event, null, 2));
