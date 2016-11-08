@@ -9,6 +9,7 @@
     "deploy:function": "serverless deploy function -f imageResizer",
     "invoke": "serverless invoke -f imageResizer --path data/event.json",
     "lint:table": "eslint . --format table",
+    "lint:codeframe": "eslint . --format codeframe",
     "lint:fix": "eslint . --fix",
     "logs": "serverless logs -f imageResizer -t",
     "setup": "cp env.yml{.template,}",
