@@ -29,7 +29,10 @@ plugins:
 custom:
   webpack: webpack.config.js
   webpackIncludeModules: true
-  writeEnvVars: ${file(env.yml)}
+  writeEnvVars:
+    RESIZE_OPTION: ${env:RESIZE_OPTION}
+    DEST_S3_BUCKET_NAME: ${env:DEST_S3_BUCKET_NAME}
+    DEST_S3_PREFIX: ${env:DEST_S3_PREFIX}
 
 # you can overwrite defaults here
 #  stage: dev
