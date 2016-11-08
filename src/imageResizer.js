@@ -41,9 +41,9 @@ const resizeImage = (imagePath, info) =>
 
      gm(imagePath)
       .resize(resizeOpts[1], resizeOpts[2], resizeOpts[3])
-      .toBuffer(info.format, (err, buffer) =>
-         err ? reject(err) : resolve(buffer),
-      );
+      .toBuffer(info.format, (err, buffer) => (
+        err ? reject(err) : resolve(buffer)
+      ));
    })
 ;
 
