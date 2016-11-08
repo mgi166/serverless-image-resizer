@@ -9,7 +9,7 @@ module.exports = {
   output: {
     libraryTarget: 'commonjs',
     path: '.webpack',
-    filename: 'index.js'
+    filename: 'index.js',
   },
   module: {
     loaders: [
@@ -17,8 +17,8 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: 'babel',
-      }
-    ]
+      },
+    ],
   },
-  externals: [nodeExternals()]
+  externals: [nodeExternals()],
 };
