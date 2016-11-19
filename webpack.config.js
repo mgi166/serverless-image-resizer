@@ -23,6 +23,6 @@ module.exports = {
   },
   externals: [nodeExternals()],
   plugins: [
-    new Dotenv()
+    new Dotenv(),
   ],
 };
