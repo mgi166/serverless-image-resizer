@@ -1247,9 +1247,16 @@ domain-browser@^1.1.1:
   version "1.1.7"
   resolved "https://registry.yarnpkg.com/domain-browser/-/domain-browser-1.1.7.tgz#867aa4b093faa05f1de08c06f4d7b21fdf8698bc"
 
-dotenv:
+dotenv, dotenv@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-2.0.0.tgz#bd759c357aaa70365e01c96b7b0bec08a6e0d949"
+
+dotenv-webpack:
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/dotenv-webpack/-/dotenv-webpack-1.3.1.tgz#32629755da02d785319a7159b905efecf7462e0c"
+  dependencies:
+    dotenv "^2.0.0"
+    webpack "^1.13.0"
 
 download@^5.0.2:
   version "5.0.2"
@@ -3638,7 +3645,7 @@ webpack-node-externals:
   version "1.5.4"
   resolved "https://registry.yarnpkg.com/webpack-node-externals/-/webpack-node-externals-1.5.4.tgz#ea05ba17108a23e776c35c42e7bb0e86c225be00"
 
-webpack@^1.13.1:
+webpack@^1.13.0, webpack@^1.13.1:
   version "1.13.3"
   resolved "https://registry.yarnpkg.com/webpack/-/webpack-1.13.3.tgz#e79c46fe5a37c5ca70084ba0894c595cdcb42815"
   dependencies:
