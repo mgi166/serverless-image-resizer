@@ -69,10 +69,10 @@ functions:
     handler: index.handle
     events:
       - s3:
-        bucket: ${env:SOURCE_S3_BUCKET_NAME}
-        event: s3:ObjectCreated:*
-        rules:
-          - prefix: ${env:SOURCE_S3_PREFIX}
+          bucket: ${env:SOURCE_S3_BUCKET_NAME}
+          event: s3:ObjectCreated:*
+          rules:
+            - prefix: ${env:SOURCE_S3_PREFIX}
 
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
