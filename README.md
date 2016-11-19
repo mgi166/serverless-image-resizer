@@ -34,7 +34,7 @@ Resize image by AWS Lambda
 % yarn deploy
 ```
 
-## Tips
+## Commands
 
 ### Invoke AWS Lambda function
 
@@ -62,7 +62,7 @@ yarn execute
 
 ## Environment variables
 
-All environment variables is required.
+All environment variables required.
 
 * `AWS_REGION`
 * `AWS_ACCESS_KEY_ID`
