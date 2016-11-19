@@ -36,6 +36,12 @@ Resize image by AWS Lambda
 
 ## Commands
 
+### Execute AWS Lambda function from s3 object-created event
+
+```
+yarn execute
+```
+
 ### Invoke AWS Lambda function
 
 ```
@@ -52,12 +58,6 @@ yarn webpack:invoke
 
 ```
 yarn logs
-```
-
-### Execute AWS Lambda function from s3 object-created event
-
-```
-yarn execute
 ```
 
 ## Environment variables
