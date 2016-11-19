@@ -20,6 +20,7 @@
   "dependencies": {
     "aws-sdk": "^2.6.15",
     "babel-polyfill": "^6.16.0",
+    "dotenv": "^2.0.0",
     "gm": "^1.23.0",
     "ulid": "^0.1.0",
     "webpack-node-externals": "^1.5.4"
