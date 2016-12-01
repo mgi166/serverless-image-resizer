@@ -19,6 +19,10 @@ functions:
           event: s3:ObjectCreated:*
           rules:
             - prefix: ${env:SOURCE_S3_PREFIX}
+    environment:
+      RESIZE_OPTION: ${env:RESIZE_OPTION}
+      DEST_S3_BUCKET_NAME: ${env:DEST_S3_BUCKET_NAME}
+      DEST_S3_PREFIX: ${env:DEST_S3_PREFIX}
 
 plugins:
   - serverless-plugin-write-env-vars
