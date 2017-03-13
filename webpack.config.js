@@ -13,7 +13,7 @@ module.exports = {
     filename: 'index.js',
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
