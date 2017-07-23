@@ -1,5 +1,6 @@
 const nodeExternals = require('webpack-node-externals');
 const Dotenv = require('dotenv-webpack');
+const path = require('path');
 
 module.exports = {
   entry: [
@@ -9,7 +10,7 @@ module.exports = {
   target: 'node',
   output: {
     libraryTarget: 'commonjs',
-    path: '.webpack',
+    path: path.resolve(__dirname, '.webpack'),
     filename: 'index.js',
   },
   module: {
