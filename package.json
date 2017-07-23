@@ -37,7 +37,7 @@
     "eslint-plugin-import": "^2.2.0",
     "serverless": "^1.1.0",
     "serverless-plugin-write-env-vars": "^1.0.1",
-    "serverless-webpack": "^1.0.0-rc.2"
+    "serverless-webpack": "^2.0.0"
   },
   "keywords": [],
   "author": "",
