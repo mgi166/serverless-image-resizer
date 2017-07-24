@@ -13,7 +13,6 @@
     "lint:codeframe": "eslint . --format codeframe",
     "lint:fix": "eslint . --fix",
     "logs": "serverless logs -f imageResizer -t",
-    "setup": "cp env.yml{.template,}",
     "webpack:build": "serverless webpack --out .webpack",
     "webpack:invoke": "serverless webpack invoke -f imageResizer --path data/event.json"
   },
