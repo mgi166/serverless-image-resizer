@@ -1,5 +1,4 @@
 const nodeExternals = require('webpack-node-externals');
-const Dotenv = require('dotenv-webpack');
 const path = require('path');
 
 module.exports = {
@@ -23,7 +22,4 @@ module.exports = {
     ],
   },
   externals: [nodeExternals()],
-  plugins: [
-    new Dotenv(),
-  ],
 };

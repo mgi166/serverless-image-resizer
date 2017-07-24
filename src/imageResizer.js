@@ -1,5 +1,4 @@
 import 'babel-polyfill';
-import dotenv from 'dotenv';
 import Aws from 'aws-sdk';
 import path from 'path';
 import fs from 'fs';
@@ -8,8 +7,6 @@ import ulid from 'ulid';
 const gm = require('gm').subClass({ imageMagick: true });
 
 const s3 = new Aws.S3();
-
-dotenv.config();
 
 const downloadImage = params =>
    new Promise((resolve, reject) => {

@@ -9,6 +9,12 @@ provider:
       Action:
         - "s3:*"
       Resource: "*"
+  environment:
+    SOURCE_S3_BUCKET_NAME: ${env:SOURCE_S3_BUCKET_NAME}
+    SOURCE_S3_PREFIX: ${env:SOURCE_S3_PREFIX}
+    RESIZE_OPTION: ${env:RESIZE_OPTION}
+    DEST_S3_BUCKET_NAME: ${env:DEST_S3_BUCKET_NAME}
+    DEST_S3_PREFIX: ${env:DEST_S3_PREFIX}
 
 functions:
   imageResizer:
@@ -21,16 +27,11 @@ functions:
             - prefix: ${env:SOURCE_S3_PREFIX}
 
 plugins:
-  - serverless-plugin-write-env-vars
   - serverless-webpack
 
 custom:
   webpack: webpack.config.js
   webpackIncludeModules: true
-  writeEnvVars:
-    RESIZE_OPTION: ${env:RESIZE_OPTION}
-    DEST_S3_BUCKET_NAME: ${env:DEST_S3_BUCKET_NAME}
-    DEST_S3_PREFIX: ${env:DEST_S3_PREFIX}
 
 resources:
   Resources:
