@@ -27,16 +27,11 @@ functions:
             - prefix: ${env:SOURCE_S3_PREFIX}
 
 plugins:
-  - serverless-plugin-write-env-vars
   - serverless-webpack
 
 custom:
   webpack: webpack.config.js
   webpackIncludeModules: true
-  writeEnvVars:
-    RESIZE_OPTION: ${env:RESIZE_OPTION}
-    DEST_S3_BUCKET_NAME: ${env:DEST_S3_BUCKET_NAME}
-    DEST_S3_PREFIX: ${env:DEST_S3_PREFIX}
 
 resources:
   Resources:
