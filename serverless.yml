@@ -35,6 +35,10 @@ custom:
 
 resources:
   Resources:
+    SourceImageBucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: ${env:SOURCE_S3_BUCKET_NAME}
     DestImageBucket:
       Type: AWS::S3::Bucket
       Properties:
