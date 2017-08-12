@@ -25,6 +25,14 @@ functions:
           event: s3:ObjectCreated:*
           rules:
             - prefix: ${env:SOURCE_S3_PREFIX}
+      - http:
+          method: post
+          path: /api/v1.0/resized_image
+          integration: lambda
+          request:
+            parameters:
+              querystrings:
+                source_url: true
 
 plugins:
   - serverless-webpack
@@ -32,16 +40,3 @@ plugins:
 custom:
   webpack: webpack.config.js
   webpackIncludeModules: true
-
-resources:
-  Resources:
-    SourceImageBucket:
-      Type: AWS::S3::Bucket
-      DeletionPolicy: Delete
-      Properties:
-        BucketName: ${env:SOURCE_S3_BUCKET_NAME}
-    DestImageBucket:
-      Type: AWS::S3::Bucket
-      DeletionPolicy: Delete
-      Properties:
-        BucketName: ${env:DEST_S3_BUCKET_NAME}

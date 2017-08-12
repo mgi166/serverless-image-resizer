@@ -1,0 +1,15 @@
+#!/bin/bash
+set -ex
+
+if ! which aws >/dev/null; then
+  echo "Require `aws` command. exit..."
+  exit 1
+fi
+
+if ! aws s3api get-bucket-acl --bucket ${SOURCE_S3_BUCKET_NAME} > /dev/null; then
+  aws s3api create-bucket --bucket ${SOURCE_S3_BUCKET_NAME}
+fi
+
+if ! aws s3api get-bucket-acl --bucket ${DEST_S3_BUCKET_NAME} > /dev/null; then
+  aws s3api create-bucket --bucket ${DEST_S3_BUCKET_NAME}
+fi
