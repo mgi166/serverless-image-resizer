@@ -37,9 +37,11 @@ resources:
   Resources:
     SourceImageBucket:
       Type: AWS::S3::Bucket
+      DeletionPolicy: Delete
       Properties:
         BucketName: ${env:SOURCE_S3_BUCKET_NAME}
     DestImageBucket:
       Type: AWS::S3::Bucket
+      DeletionPolicy: Delete
       Properties:
         BucketName: ${env:DEST_S3_BUCKET_NAME}
