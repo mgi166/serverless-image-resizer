@@ -7,9 +7,9 @@ if ! which aws >/dev/null; then
 fi
 
 if ! aws s3api get-bucket-acl --bucket ${SOURCE_S3_BUCKET_NAME} > /dev/null; then
-  aws s3api create-bucket --bucket ${SOURCE_S3_BUCKET_NAME}
+  aws s3api create-bucket --bucket ${SOURCE_S3_BUCKET_NAME} --region ${AWS_REGION}
 fi
 
 if ! aws s3api get-bucket-acl --bucket ${DEST_S3_BUCKET_NAME} > /dev/null; then
-  aws s3api create-bucket --bucket ${DEST_S3_BUCKET_NAME}
+  aws s3api create-bucket --bucket ${DEST_S3_BUCKET_NAME} --region ${AWS_REGION}
 fi
