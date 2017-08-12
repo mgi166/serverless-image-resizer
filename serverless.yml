@@ -28,7 +28,7 @@ functions:
       - http:
           method: post
           path: /api/v1.0/resized_image
-          integration: lambda
+          integration: aws_proxy
           request:
             parameters:
               querystrings:
