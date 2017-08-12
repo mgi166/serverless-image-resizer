@@ -6,12 +6,10 @@ if ! which aws >/dev/null; then
   exit 1
 fi
 
-if ! aws s3api get-bucket-acl --bucket ${SOURCE_S3_BUCKET_NAME} > /dev/null; then
-  aws s3api create-bucket --bucket ${SOURCE_S3_BUCKET_NAME} --region ${AWS_REGION}
+if ! aws s3api get-bucket-acl --bucket ${SOURCE_S3_BUCKET_NAME} > /dev/null 2>&1; then
   aws s3api create-bucket --bucket ${SOURCE_S3_BUCKET_NAME} --region ${AWS_REGION} --create-bucket-configuration LocationConstraint=${AWS_REGION}
 fi
 
-if ! aws s3api get-bucket-acl --bucket ${DEST_S3_BUCKET_NAME} > /dev/null; then
-  aws s3api create-bucket --bucket ${DEST_S3_BUCKET_NAME} --region ${AWS_REGION}
+if ! aws s3api get-bucket-acl --bucket ${DEST_S3_BUCKET_NAME} > /dev/null 2>&1; then
   aws s3api create-bucket --bucket ${DEST_S3_BUCKET_NAME} --region ${AWS_REGION} --create-bucket-configuration LocationConstraint=${AWS_REGION}
 fi
