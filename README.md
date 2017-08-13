@@ -32,6 +32,9 @@ Resize image by AWS Lambda
 % export DEST_S3_PREFIX=<prefix of key that has converted image>
 
 % yarn deploy
+
+# Upload image and start to convert image
+% yarn upload_source_image
 ```
 
 ## Commands
@@ -39,7 +42,7 @@ Resize image by AWS Lambda
 ### Execute AWS Lambda function from s3 object-created event
 
 ```
-yarn execute
+yarn upload_source_image
 ```
 
 ### Invoke AWS Lambda function
@@ -51,7 +54,7 @@ yarn invoke
 ### Local invoking AWS Lambda function
 
 ```
-yarn webpack:invoke
+yarn invoke:local
 ```
 
 ### Viewing log output
