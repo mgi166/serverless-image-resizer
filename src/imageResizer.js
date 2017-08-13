@@ -62,7 +62,7 @@ const uploadImage = (buffer, info) =>
    })
 ;
 
-export default async ({sourceBucket, sourceKey}) => {
+export default async ({sourceBucket, sourceKey, options}) => {
   const imagePath = await downloadImage({
     Bucket: sourceBucket,
     Key: sourceKey,

@@ -27,6 +27,7 @@ const successResponse = (data) => {
 const sourceImage = (event) => {
   let bucket = '';
   let key = '';
+  let options = {};
 
   if (isS3Event(event)) {
     const s3 = event.Records[0].s3;
@@ -38,9 +39,14 @@ const sourceImage = (event) => {
     const u = url.parse(event.queryStringParameters.source_url);
     bucket = u.hostname;
     key = u.path.replace(/^\//, "");
+    options = {
+      resizeOption: event.queryStringParameters.resize_option,
+      destS3Bucket: event.queryStringParameters.dest_s3_bucket,
+      destS3Prefix: event.queryStringParameters.dest_s3_prefix,
+    };
   }
 
-  return { bucket: bucket, key: key };
+  return { bucket: bucket, key: key, options: options };
 };
 
 const isS3Event = (event) => {
