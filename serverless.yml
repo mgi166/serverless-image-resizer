@@ -33,6 +33,13 @@ functions:
             parameters:
               querystrings:
                 source_url: true
+          response:
+            headers:
+              Content-Type: application/json
+            template: $input.path('$')
+            statusCodes:
+              201:
+                pattern: ''
 
 plugins:
   - serverless-webpack
