@@ -3645,6 +3645,10 @@ serve-static@1.12.4:
     parseurl "~1.3.1"
     send "0.15.4"
 
+serverless-s3-remover@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/serverless-s3-remover/-/serverless-s3-remover-0.2.0.tgz#cedb7796dc14935b92fbc4890144a65a0ec1d3d5"
+
 serverless-webpack@^2.0.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/serverless-webpack/-/serverless-webpack-2.2.0.tgz#c9fbc23af2076f8e44bd70e3bfadbd3237c50eb9"
