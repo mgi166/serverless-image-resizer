@@ -8,8 +8,20 @@ export const handle = (event, context, callback) => {
   const image = sourceImage(event);
 
   imageResizer({sourceBucket: image.bucket, sourceKey: image.key})
-    .then(data => callback(null, data))
+    .then(data => callback(null, successResponse(data)))
     .catch(err => callback(err));
+};
+
+const successResponse = (data) => {
+  // NOTE: lambda proxy integration format
+  return {
+    isBase64Encoded: false,
+    statusCode: 201,
+    headers: {
+      "Content-Type": 'application/json'
+    },
+    body: JSON.stringify(data),
+  };
 };
 
 const sourceImage = (event) => {
