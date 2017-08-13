@@ -33,10 +33,12 @@ const imageInfo = imagePath =>
    })
 ;
 
-const resizeImage = (imagePath, info) =>
+const resizeImage = (imagePath, info, options) =>
    new Promise((resolve, reject) => {
      console.log('resizeImage start...');
-     const resizeOpts = /^(\d+)x(\d+)([%@!<>])?$/g.exec(process.env.RESIZE_OPTION);
+     const resizeOpts = /^(\d+)x(\d+)([%@!<>])?$/g.exec(
+       options.resizeOption || process.env.RESIZE_OPTION
+     );
 
      gm(imagePath)
       .resize(resizeOpts[1], resizeOpts[2], resizeOpts[3])
@@ -46,12 +48,12 @@ const resizeImage = (imagePath, info) =>
    })
 ;
 
-const uploadImage = (buffer, info) =>
+const uploadImage = (buffer, info, options) =>
    new Promise((resolve, reject) => {
      console.log('uploadImage start...');
      const params = {
-       Bucket: process.env.DEST_S3_BUCKET_NAME,
-       Key: `${process.env.DEST_S3_PREFIX}/${ulid()}.${info.format}`,
+       Bucket: options.destS3Bucket || process.env.DEST_S3_BUCKET_NAME,
+       Key: `${options.destS3Prefix || process.env.DEST_S3_PREFIX}/${ulid()}.${info.format}`,
        Body: buffer,
        ContentType: info['Mime type'],
      };
@@ -68,8 +70,8 @@ export default async ({sourceBucket, sourceKey, options}) => {
     Key: sourceKey,
   });
   const info = await imageInfo(imagePath);
-  const imageBuffer = await resizeImage(imagePath, info);
-  const result = await uploadImage(imageBuffer, info);
+  const imageBuffer = await resizeImage(imagePath, info, options);
+  const result = await uploadImage(imageBuffer, info, options);
   return result;
 };
 
