@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "execute": "aws s3 cp data/pastel_400x400.jpg s3://${SOURCE_S3_BUCKET_NAME}/${SOURCE_S3_PREFIX}/pastel_400x400.jpg",
     "deploy": "serverless deploy",
     "deploy:function": "serverless deploy function -f imageResizer",
     "invoke": "serverless invoke -f imageResizer --path data/event.json",
@@ -13,6 +12,7 @@
     "lint:codeframe": "eslint . --format codeframe",
     "lint:fix": "eslint . --fix",
     "logs": "serverless logs -f imageResizer -t",
+    "upload_source_image": "aws s3 cp data/pastel_400x400.jpg s3://${SOURCE_S3_BUCKET_NAME}/${SOURCE_S3_PREFIX}/pastel_400x400.jpg",
     "webpack:build": "serverless webpack --out .webpack",
     "webpack:invoke": "serverless webpack invoke -f imageResizer --path data/event.json"
   },
