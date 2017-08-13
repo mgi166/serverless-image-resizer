@@ -7,7 +7,7 @@ export const handle = (event, context, callback) => {
 
   const image = sourceImage(event);
 
-  imageResizer({sourceBucket: image.bucket, sourceKey: image.key})
+  imageResizer({sourceBucket: image.bucket, sourceKey: image.key, options: image.options})
     .then(data => callback(null, successResponse(data)))
     .catch(err => callback(err));
 };
