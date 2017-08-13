@@ -33,6 +33,9 @@ functions:
             parameters:
               querystrings:
                 source_url: true
+                resize_option: false
+                dest_s3_bucket: false
+                dest_s3_prefix: false
           response:
             headers:
               Content-Type: application/json
