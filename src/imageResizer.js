@@ -62,10 +62,10 @@ const uploadImage = (buffer, info) =>
    })
 ;
 
-export default async (event) => {
+export default async ({sourceBucket, sourceKey}) => {
   const imagePath = await downloadImage({
-    Bucket: event.bucket.name,
-    Key: event.object.key,
+    Bucket: sourceBucket,
+    Key: sourceKey,
   });
   const info = await imageInfo(imagePath);
   const imageBuffer = await resizeImage(imagePath, info);
