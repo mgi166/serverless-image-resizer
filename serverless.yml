@@ -46,10 +46,15 @@ functions:
 
 plugins:
   - serverless-webpack
+  - serverless-s3-remover
 
 custom:
   webpack: webpack.config.js
   webpackIncludeModules: true
+  remover:
+    buckets:
+      - ${env:SOURCE_S3_BUCKET_NAME}
+      - ${env:DEST_S3_BUCKET_NAME}
 
 resources:
   Resources:
