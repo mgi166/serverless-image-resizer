@@ -1,27 +1,8 @@
-import imageResizer from './src/imageResizer';
 import url from 'url';
+import imageResizer from './src/imageResizer';
 
-export const handle = (event, context, callback) => {
-  console.log('eventObject: %s', JSON.stringify(event, null, 2));
-  console.log('context: %s', JSON.stringify(context, null, 2));
-
-  const image = sourceImage(event);
-
-  imageResizer({ sourceBucket: image.bucket, sourceKey: image.key, options: image.options })
-    .then(data => callback(null, successResponse(data)))
-    .catch(err => callback(err));
-};
-
-const successResponse = data =>
-  // NOTE: lambda proxy integration format
-   ({
-     isBase64Encoded: false,
-     statusCode: 201,
-     headers: {
-       'Content-Type': 'application/json',
-     },
-     body: JSON.stringify(data),
-   });
+const isS3Event = event => typeof event.Records === 'object';
+const isApiGatewayEvent = event => typeof event.Records === 'undefined';
 
 const sourceImage = (event) => {
   let bucket = '';
@@ -48,6 +29,24 @@ const sourceImage = (event) => {
   return { bucket, key, options };
 };
 
-const isS3Event = event => typeof event.Records === 'object';
+const successResponse = data =>
+  // NOTE: lambda proxy integration format
+   ({
+     isBase64Encoded: false,
+     statusCode: 201,
+     headers: {
+       'Content-Type': 'application/json',
+     },
+     body: JSON.stringify(data),
+   });
 
-const isApiGatewayEvent = event => typeof event.Records === 'undefined';
+export const handle = (event, context, callback) => {
+  console.log('eventObject: %s', JSON.stringify(event, null, 2));
+  console.log('context: %s', JSON.stringify(context, null, 2));
+
+  const image = sourceImage(event);
+
+  imageResizer({ sourceBucket: image.bucket, sourceKey: image.key, options: image.options })
+    .then(data => callback(null, successResponse(data)))
+    .catch(err => callback(err));
+};
