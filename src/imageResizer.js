@@ -37,7 +37,7 @@ const resizeImage = (imagePath, info, options) =>
    new Promise((resolve, reject) => {
      console.log('resizeImage start...');
      const resizeOpts = /^(\d+)x(\d+)([%@!<>])?$/g.exec(
-       options.resizeOption || process.env.RESIZE_OPTION
+       options.resizeOption || process.env.RESIZE_OPTION,
      );
 
      gm(imagePath)
@@ -64,7 +64,7 @@ const uploadImage = (buffer, info, options) =>
    })
 ;
 
-export default async ({sourceBucket, sourceKey, options}) => {
+export default async ({ sourceBucket, sourceKey, options }) => {
   const imagePath = await downloadImage({
     Bucket: sourceBucket,
     Key: sourceKey,
