@@ -7,22 +7,21 @@ export const handle = (event, context, callback) => {
 
   const image = sourceImage(event);
 
-  imageResizer({sourceBucket: image.bucket, sourceKey: image.key, options: image.options})
+  imageResizer({ sourceBucket: image.bucket, sourceKey: image.key, options: image.options })
     .then(data => callback(null, successResponse(data)))
     .catch(err => callback(err));
 };
 
-const successResponse = (data) => {
+const successResponse = data =>
   // NOTE: lambda proxy integration format
-  return {
-    isBase64Encoded: false,
-    statusCode: 201,
-    headers: {
-      "Content-Type": 'application/json'
-    },
-    body: JSON.stringify(data),
-  };
-};
+   ({
+     isBase64Encoded: false,
+     statusCode: 201,
+     headers: {
+       'Content-Type': 'application/json',
+     },
+     body: JSON.stringify(data),
+   });
 
 const sourceImage = (event) => {
   let bucket = '';
@@ -38,7 +37,7 @@ const sourceImage = (event) => {
   if (isApiGatewayEvent(event)) {
     const u = url.parse(event.queryStringParameters.source_url);
     bucket = u.hostname;
-    key = u.path.replace(/^\//, "");
+    key = u.path.replace(/^\//, '');
     options = {
       resizeOption: event.queryStringParameters.resize_option,
       destS3Bucket: event.queryStringParameters.dest_s3_bucket,
@@ -46,13 +45,9 @@ const sourceImage = (event) => {
     };
   }
 
-  return { bucket: bucket, key: key, options: options };
+  return { bucket, key, options };
 };
 
-const isS3Event = (event) => {
-  return typeof event.Records === 'object';
-};
+const isS3Event = event => typeof event.Records === 'object';
 
-const isApiGatewayEvent = (event) => {
-  return typeof event.Records === 'undefined';
-};
+const isApiGatewayEvent = event => typeof event.Records === 'undefined';
